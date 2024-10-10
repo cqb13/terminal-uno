@@ -4,6 +4,6 @@ import dev.cqb13.game.Game;
 
 public class Uno {
   public static void main(String[] args) {
-    Game game = new Game(1);
+    Game game = new Game(2);
   }
 }

@@ -1,29 +1,37 @@
+
 package dev.cqb13.game.deck;
 
-public enum Card {
-  One(Color.Red),
-  Two(Color.Red),
-  Three(Color.Red),
-  Four(Color.Red),
-  Five(Color.Red),
-  Six(Color.Red),
-  Seven(Color.Red),
-  Eight(Color.Red),
-  Nine(Color.Red),
-  Zero(Color.Red),
-  Reverse(Color.Red),
-  Skip(Color.Red),
-  DrawTwo(Color.Red),
-  DrawFour(Color.Wild),
-  Wild(Color.Wild);
+public class Card {
+  public enum Type {
+    One, Two, Three, Four, Five, Six, Seven, Eight, Nine, Zero,
+    Reverse, Skip, DrawTwo, DrawFour, Wild
+  }
 
-  private final Color color;
+  public enum Color {
+    Red, Blue, Green, Yellow, Wild
+  }
 
-  Card(Color color) {
+  private Type type;
+  private Color color;
+
+  public Card(Type type, Color color) {
+    this.type = type;
     this.color = color;
   }
 
-  public Color color() {
+  public Type getType() {
+    return type;
+  }
+
+  public Color getColor() {
     return color;
+  }
+
+  @Override
+  public String toString() {
+    return "Card{" +
+        "type=" + type +
+        ", color=" + color +
+        '}';
   }
 }
