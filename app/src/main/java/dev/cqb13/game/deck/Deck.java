@@ -1,43 +1,24 @@
 package dev.cqb13.game.deck;
 
-public class Deck {
-  public int size;
-  public Node topCard;
+import java.util.ArrayList;
+import java.util.List;
 
-  public Deck() {
-    this.size = 0;
-    this.topCard = null;
-  }
+public class Deck {
+  private List<Card> cards = new ArrayList<>();
 
   public void addCard(Card card) {
-    Node node = new Node(card);
-
-    node.next = this.topCard;
-
-    this.size++;
-
-    this.topCard = node;
+    cards.add(card);
   }
 
   public Card takeCard() {
-    if (this.size == 0) {
-      return null;
-    }
-
-    Card card = this.topCard.value;
-
-    this.topCard = this.topCard.next;
-
-    this.size--;
-
-    return card;
+    return cards.isEmpty() ? null : cards.remove(0);
   }
 
-  public Card checkCard() {
-    if (this.size == 0) {
-      return null;
-    }
+  public List<Card> getCards() {
+    return cards;
+  }
 
-    return this.topCard.value;
+  public void setCards(List<Card> cards) {
+    this.cards = cards;
   }
 }
